@@ -1,0 +1,58 @@
+{
+  "name": "cyber-cafe-photo-tool",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "electron:dev": "concurrently -k \"vite --host 127.0.0.1 --port 5003\" \"wait-on http://127.0.0.1:5003 && electron .\"",
+    "app": "npm run electron:dev",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "@imgly/background-removal": "^1.7.0",
+    "jspdf": "^4.2.1",
+    "onnxruntime-web": "^1.21.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-easy-crop": "^6.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3",
+    "oxlint": "^1.81.0",
+    "sharp": "^0.35.5",
+    "vite": "^8.3.0",
+    "vite-plugin-pwa": "^2.0.0",
+    "wait-on": "^9.5.1"
+  },
+  "build": {
+    "appId": "com.cybercafe.photostudio",
+    "productName": "Cyber Cafe Photo Studio",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
