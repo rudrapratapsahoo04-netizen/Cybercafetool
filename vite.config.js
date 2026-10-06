@@ -1,9 +1,10 @@
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
-   base: "/Cybercafetool/",
+  base: "/Cybercafetool/",
 
   plugins: [
     react(),
@@ -16,8 +17,10 @@ export default defineConfig({
         name: "Cyber Cafe Photo Studio",
         short_name: "Photo Studio",
         description: "Cyber Cafe Photo Editing and Printing Studio",
-        start_url: "/",
-        scope: "/",
+
+        start_url: "/Cybercafetool/",
+        scope: "/Cybercafetool/",
+
         display: "standalone",
         background_color: "#07111f",
         theme_color: "#07111f",
@@ -25,13 +28,13 @@ export default defineConfig({
 
         icons: [
           {
-            src: "/pwa-192x192.png",
+            src: "/Cybercafetool/pwa-192x192.png",
             sizes: "192x192",
             type: "image/png",
             purpose: "any maskable",
           },
           {
-            src: "/pwa-512x512.png",
+            src: "/Cybercafetool/pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "any maskable",
